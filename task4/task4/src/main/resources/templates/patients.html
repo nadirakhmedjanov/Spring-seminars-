@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title> Главная</title>
+    </head>
+    <body>
+        <h1>Пациенты</h1>
+        <h2>Просмотр записавшихся к врачу на понедельник</h2>
+    <table>
+        <tr>
+            <th>ФИО</th>
+            <th>Время</th>
+        </tr>
+        <tr th:each="patient : ${patients}">
+            <td th:text="${patient.name}"></td>
+            <td th:text="${patient.time}"></td>
+        </tr>
+    </table>
+    <h2> Записать пациента</h2>
+    <form action="/patients" method="post">
+        Name: <input type="text" name="name"><br />
+        Time: <input type="time"steps="any" name="time"><br />
+        <button type="submit"> Записать пациента</button> 
+    </form>
+    </body>
+</html>
